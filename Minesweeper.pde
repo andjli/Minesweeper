@@ -45,7 +45,7 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-    //your code here
+    //your code
 }
 public void displayWinningMessage()
 {
@@ -64,7 +64,7 @@ public int countMines(int row, int col)
     //your code here
     for(int r = row-1;r<=row+1;r++)
       for(int c = col-1; c<=col+1;c++)
-        if(isValid(row,col) && mines.contains(buttons[r][c])){
+        if(isValid(r,c) && mines.contains(buttons[r][c])){
           numMines++;
         }
     if(mines.contains(buttons[row][col])){
@@ -108,11 +108,15 @@ public class MSButton
         else if(mines.contains(this)){
           displayLosingMessage();
         }
-        else if(countMines() > 0){
-          myLabel = 
+        else if(countMines(myRow,myCol) > 0){
+          myLabel = countMines(myRow,myCol)+"";
         }
         else{
-          mousePressed();
+          for(int r = myRow-1;r<=myRow+1;r++)
+            for(int c = myCol-1; c<=myCol+1;c++)
+              if(isValid(r,c) && buttons[r][c].clicked==true){
+                mousePressed();
+              }
         }
     }
     public void draw () 
