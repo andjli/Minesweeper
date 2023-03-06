@@ -42,7 +42,9 @@ public void draw ()
 }
 public boolean isWon()
 {
-    //your code here
+    if(numMines == 0){
+      return true;
+    }
     return false;
 }
 public void displayLosingMessage()
