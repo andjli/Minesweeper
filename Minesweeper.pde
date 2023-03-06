@@ -25,7 +25,7 @@ void setup ()
 public void setMines()
 {
     //your code
-    while(mines.size() < 10){
+    while(mines.size() < 20){
       int r = (int)(Math.random()*20); 
       int c = (int)(Math.random()*20);
       if(!mines.contains(buttons)){
@@ -118,7 +118,7 @@ public class MSButton
         else{
           for(int r = myRow-1;r<=myRow+1;r++){
             for(int c = myCol-1; c<=myCol+1;c++){
-              if(isValid(r,c) && !buttons[r][c].clicked){
+              if(isValid(r,c) && !buttons[r][c].clicked && countMines(myRow,myCol)==0){
                 buttons[r][c].mousePressed();
               }
             }
