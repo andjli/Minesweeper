@@ -118,7 +118,7 @@ public class MSButton
         else{
           for(int r = myRow-1;r<=myRow+1;r++){
             for(int c = myCol-1; c<=myCol+1;c++){
-              if(isValid(r,c) && !buttons[r][c].clicked && countMines(myRow,myCol)==0){
+              if(isValid(r,c) && !buttons[r][c].clicked){
                 buttons[r][c].mousePressed();
               }
             }
