@@ -25,11 +25,13 @@ void setup ()
 public void setMines()
 {
     //your code
-    int r = (int)(Math.random()*20); 
-    int c = (int)(Math.random()*20);
-    if(!mines.contains(buttons)){
-      mines.add(buttons[r][c]);
-    }
+    while(mines.size < 10){
+      int r = (int)(Math.random()*20); 
+      int c = (int)(Math.random()*20);
+      if(!mines.contains(buttons)){
+        mines.add(buttons[r][c]);
+      }
+   }
 }
 
 public void draw ()
