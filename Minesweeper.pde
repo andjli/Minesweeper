@@ -77,7 +77,7 @@ public void displayWinningMessage()
     buttons[NUM_ROWS/2][(NUM_COLS/2)-2].setLabel("U");
     buttons[NUM_ROWS/2][(NUM_COLS/2)-1].setLabel(" ");
     buttons[NUM_ROWS/2][(NUM_COLS/2)].setLabel("W");
-    buttons[NUM_ROWS/2][(NUM_COLS/2)+1].setLabel("I");
+    buttons[NUM_ROWS/2][(NUM_COLS/2)+1].setLabel("O");
     buttons[NUM_ROWS/2][(NUM_COLS/2)+2].setLabel("N");
     buttons[NUM_ROWS/2][(NUM_COLS/2)+3].setLabel("!");
 }
