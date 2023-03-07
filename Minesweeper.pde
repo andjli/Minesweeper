@@ -25,7 +25,7 @@ void setup ()
 public void setMines()
 {
     //your code
-    while(mines.size() < 15){
+    while(mines.size() < 40){
       int r = (int)(Math.random()*20); 
       int c = (int)(Math.random()*20);
       if(!mines.contains(buttons)){
@@ -42,18 +42,44 @@ public void draw ()
 }
 public boolean isWon()
 {
-    if(numMines == 0){
-      return true;
+    for(int r = 0; r < NUM_ROWS; r++){
+      for(int c = 0; c < NUM_COLS; c++){
+        if(!buttons[r][c].clicked && !mines.contains(buttons[r][c])){
+          return false;
+        }
+      }
     }
-    return false;
+    return true;
 }
 public void displayLosingMessage()
 {
-    //your code
+  for(int r = 0; r < NUM_ROWS; r++){
+    for(int c = 0; c < NUM_COLS; c++){
+      if(!buttons[r][c].clicked && mines.contains(buttons[r][c])){
+        buttons[r][c].clicked = true;
+        buttons[NUM_ROWS/2][(NUM_COLS/2)-4].setLabel("Y");
+        buttons[NUM_ROWS/2][(NUM_COLS/2)-3].setLabel("O");
+        buttons[NUM_ROWS/2][(NUM_COLS/2)-2].setLabel("U");
+        buttons[NUM_ROWS/2][(NUM_COLS/2)-1].setLabel(" ");
+        buttons[NUM_ROWS/2][(NUM_COLS/2)].setLabel("L");
+        buttons[NUM_ROWS/2][(NUM_COLS/2)+1].setLabel("O");
+        buttons[NUM_ROWS/2][(NUM_COLS/2)+2].setLabel("S");
+        buttons[NUM_ROWS/2][(NUM_COLS/2)+3].setLabel("T");
+        buttons[NUM_ROWS/2][(NUM_COLS/2)+4].setLabel("!");
+      }
+    }
+  }
 }
 public void displayWinningMessage()
 {
-    //your code here
+    buttons[NUM_ROWS/2][(NUM_COLS/2)-4].setLabel("Y");
+    buttons[NUM_ROWS/2][(NUM_COLS/2)-3].setLabel("O");
+    buttons[NUM_ROWS/2][(NUM_COLS/2)-2].setLabel("U");
+    buttons[NUM_ROWS/2][(NUM_COLS/2)-1].setLabel(" ");
+    buttons[NUM_ROWS/2][(NUM_COLS/2)].setLabel("W");
+    buttons[NUM_ROWS/2][(NUM_COLS/2)+1].setLabel("I");
+    buttons[NUM_ROWS/2][(NUM_COLS/2)+2].setLabel("N");
+    buttons[NUM_ROWS/2][(NUM_COLS/2)+3].setLabel("!");
 }
 public boolean isValid(int r, int c)
 {
